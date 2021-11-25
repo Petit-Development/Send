@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       colors: {
         'petit-purple': '#7F87BD',
+        'petit-light-purple': '#CCD3FC',
         'petit-grey': '#544F57',
       },
       backgroundImage: {

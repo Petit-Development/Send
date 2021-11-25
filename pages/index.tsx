@@ -1,7 +1,9 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import { Copy } from 'react-feather';
 
 export default function Home() {
+  const [selected, setSelected] = useState('upload');
   return (
     <div>
       <Head>
@@ -14,8 +16,16 @@ export default function Home() {
           <div className="flex flex-col h-full">
             <Upload />
             <div className="flex justify-around">
-              <TabButton text={'Upload'} />
-              <TabButton text={'Download'} />
+              <TabButton
+                onClick={() => setSelected('upload')}
+                text={'Upload'}
+                selected={selected === 'upload'}
+              />
+              <TabButton
+                onClick={() => setSelected('download')}
+                text={'Download'}
+                selected={selected === 'download'}
+              />
             </div>
           </div>
         </div>
@@ -26,11 +36,26 @@ export default function Home() {
 
 interface TabButtonProps {
   text: string;
+  onClick?: () => void;
+  selected?: boolean;
 }
 
-const TabButton: React.FC<TabButtonProps> = ({}) => (
-  <div className="bg-purple-200 w-full text-center">Upload</div>
-);
+const TabButton: React.FC<TabButtonProps> = ({
+  text,
+  selected = false,
+  onClick,
+}) => {
+  return (
+    <div
+      onClick={onClick}
+      className={`flex text-2xl place-items-center justify-center ${
+        !selected ? 'bg-petit-light-purple' : 'bg-petit-purple'
+      } w-full text-center h-20`}
+    >
+      {text}
+    </div>
+  );
+};
 
 function Upload() {
   return (
