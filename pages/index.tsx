@@ -57,7 +57,7 @@ const TabButton: React.FC<TabButtonProps> = ({
   );
 };
 
-function Upload() {
+const Upload = () => {
   return (
     <div className="flex flex-col justify-center items-center content-center bg-arrow-up h-full w-full bg-center bg-no-repeat bg-contain">
       <div className="flex flex-col justify-center w-full items-center place-items-center">
@@ -77,7 +77,20 @@ function Upload() {
             <Copy size="21" />
           </div>
         </div>
+        <Button text="Upload" />
       </div>
     </div>
   );
+};
+
+interface ButtonProps {
+  text: string;
 }
+
+const Button: React.FC<ButtonProps> = ({ text }) => {
+  return (
+    <div className="bg-petit-light-purple rounded-3xl px-7 py-3 mt-7 shadow-2xl hover:bg-petit-purple hover:shadow-none select-none">
+      {text}
+    </div>
+  );
+};
