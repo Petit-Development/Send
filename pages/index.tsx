@@ -58,6 +58,9 @@ const TabButton: React.FC<TabButtonProps> = ({
 };
 
 const Upload = () => {
+  const [text, setText] = useState('');
+  const [key, setKey] = useState('');
+
   return (
     <div className="flex flex-col justify-center items-center content-center bg-arrow-up h-full w-full bg-center bg-no-repeat bg-contain">
       <div className="flex flex-col justify-center w-full items-center place-items-center">
@@ -65,6 +68,7 @@ const Upload = () => {
           <textarea
             className=" p-3 border-transparent focus:outline-none w-full h-10/12 bg-transparent resize-none"
             placeholder="Enter Text to Upload..."
+            onChange={(change) => setText(change.target.value)}
           />
         </div>
 
@@ -72,12 +76,16 @@ const Upload = () => {
           <input
             className="flex-none p-3 border-transparent focus:outline-none w-11/12 h-10/12 bg-transparent resize-none"
             placeholder="Enter Key..."
+            onChange={(change) => setKey(change.target.value)}
           />
-          <div className="flex items-center  bg-petit-grey justify-center w-full text-center rounded-r-2xl">
+          <div
+            onClick={() => navigator.clipboard.writeText(key)}
+            className="flex items-center bg-petit-grey justify-center w-full text-center rounded-r-2xl"
+          >
             <Copy size="21" />
           </div>
         </div>
-        <Button text="Upload" />
+        <Button text="Upload" onClick={() => console.log({ text, key })} />
       </div>
     </div>
   );
@@ -85,11 +93,15 @@ const Upload = () => {
 
 interface ButtonProps {
   text: string;
+  onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ text }) => {
+const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
   return (
-    <div className="bg-petit-light-purple rounded-3xl px-7 py-3 mt-7 shadow-2xl hover:bg-petit-purple hover:shadow-none select-none">
+    <div
+      onClick={onClick}
+      className="bg-petit-light-purple rounded-3xl px-7 py-3 mt-7 shadow-2xl hover:bg-petit-purple hover:shadow-none select-none"
+    >
       {text}
     </div>
   );
