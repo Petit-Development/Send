@@ -50,7 +50,7 @@ const TabButton: React.FC<TabButtonProps> = ({
       onClick={onClick}
       className={`flex text-2xl place-items-center justify-center ${
         !selected ? 'bg-petit-light-purple' : 'bg-petit-purple'
-      } w-full text-center h-20`}
+      } shadow-2xl transition-all z-10 w-full text-center h-20`}
     >
       {text}
     </div>
@@ -62,7 +62,7 @@ const Upload = () => {
   const [key, setKey] = useState('');
 
   return (
-    <div className="flex flex-col justify-center items-center content-center bg-arrow-up h-full w-full bg-center bg-no-repeat bg-contain">
+    <div className="z-0 flex flex-col justify-center items-center content-center bg-arrow-up h-full w-full bg-center bg-no-repeat bg-contain">
       <div className="flex flex-col justify-center w-full items-center place-items-center">
         <div className="flex justify-center w-96 h-40 bg-white rounded-2xl shadow-xl">
           <textarea
@@ -100,7 +100,7 @@ const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="bg-petit-light-purple rounded-3xl px-7 py-3 mt-7 shadow-2xl hover:bg-petit-purple hover:shadow-none select-none"
+      className="transition-all duration-75 bg-petit-light-purple rounded-3xl px-7 py-3 mt-7 shadow-2xl hover:bg-petit-purple hover:shadow-none select-none"
     >
       {text}
     </div>
