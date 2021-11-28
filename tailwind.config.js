@@ -9,6 +9,7 @@ module.exports = {
       },
       backgroundImage: {
         'arrow-up': "url('/arrow-up.svg')",
+        'arrow-down': "url('/arrow-down.svg')",
       },
     },
   },

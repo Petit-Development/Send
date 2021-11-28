@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import { Copy } from 'react-feather';
 import Upload from '../components/upload';
+import Download from '../components/download';
 
 export default function Home() {
   const [selected, setSelected] = useState('upload');
+  const downloadSelected = selected === 'download';
   return (
     <div>
       <Head>
@@ -13,7 +14,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="bg-petit-purple w-screen h-screen">
+        <div
+          className={`${
+            downloadSelected ? 'bg-petit-grey' : 'bg-petit-purple'
+          } w-screen h-screen`}
+        >
           <div className="flex flex-col h-full">
             <div
               className={`h-full ${
@@ -23,15 +28,12 @@ export default function Home() {
               <Upload />
             </div>
             <div
-              className={`h-full ${
+              className={`h-full transition-all ${
                 selected === 'upload' ? 'hidden' : 'visible'
               }`}
             >
-              <Upload />
+              <Download />
             </div>
-            <p className={`${selected === 'upload' ? 'hidden' : ''}`}>
-              Working on it!
-            </p>
             <div className="flex justify-around">
               <TabButton
                 onClick={() => setSelected('upload')}
@@ -66,25 +68,8 @@ const TabButton: React.FC<TabButtonProps> = ({
     <div
       onClick={onClick}
       className={`flex text-2xl place-items-center justify-center ${
-        !selected ? 'bg-petit-light-purple' : 'bg-petit-purple'
+        !selected ? 'bg-petit-light-purple' : 'bg-transparent'
       } shadow-2xl transition-all z-10 w-full text-center h-20`}
-    >
-      {text}
-    </div>
-  );
-};
-
-
-interface ButtonProps {
-  text: string;
-  onClick?: () => void;
-}
-
-const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
-  return (
-    <div
-      onClick={onClick}
-      className="transition-all duration-75 bg-petit-light-purple rounded-3xl px-7 py-3 mt-7 shadow-2xl hover:bg-petit-purple hover:shadow-none select-none"
     >
       {text}
     </div>
