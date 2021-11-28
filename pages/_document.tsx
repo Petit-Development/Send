@@ -27,7 +27,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body className="font-inconsolata">
           <Main />
           <NextScript />
         </body>

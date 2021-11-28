@@ -1,6 +1,9 @@
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      'inconsolata': ['Inconsolata'],
+    },
     extend: {
       colors: {
         'petit-purple': '#7F87BD',
