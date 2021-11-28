@@ -32,7 +32,7 @@ export default function Home() {
                 selected === 'upload' ? 'hidden' : 'visible'
               }`}
             >
-              <Download />
+              <Download text={'Finished the ui'} />
             </div>
             <div className="flex justify-around">
               <TabButton
