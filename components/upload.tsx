@@ -27,7 +27,7 @@ export const Upload = () => {
             onClick={() => navigator.clipboard.writeText(key)}
             className="flex items-center bg-petit-grey justify-center w-full text-center rounded-r-2xl"
           >
-            <Copy size="21" />
+            <Copy color="#ffffff" size="21" />
           </div>
         </div>
         <Button text="Upload" onClick={() => console.log({ text, key })} />
