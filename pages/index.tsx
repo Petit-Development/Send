@@ -22,14 +22,14 @@ export default function Home() {
           <div className="flex flex-col h-full">
             <div
               className={`h-full ${
-                selected === 'download' ? 'hidden' : 'visible'
-              }`}
+                downloadSelected ? 'hidden' : 'visible'
+              }lg:visible`}
             >
               <Upload />
             </div>
             <div
               className={`h-full transition-all ${
-                selected === 'upload' ? 'hidden' : 'visible'
+                !downloadSelected ? 'hidden' : 'visible'
               }`}
             >
               <Download text={'Finished the ui'} />
