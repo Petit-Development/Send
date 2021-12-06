@@ -19,7 +19,7 @@ export default function Home() {
             downloadSelected ? 'bg-petit-grey' : 'bg-petit-purple'
           } w-screen h-screen`}
         >
-          <div className="flex flex-col h-full">
+        <div className="flex flex-col lg:flex-row h-full">
             <div
               className={`h-full ${
                 downloadSelected ? 'hidden' : 'visible'
@@ -34,7 +34,7 @@ export default function Home() {
             >
               <Download text={'Finished the ui'} />
             </div>
-            <div className="flex justify-around">
+            <div className="flex lg:hidden justify-around">
               <TabButton
                 onClick={() => setSelected('upload')}
                 text={'Upload'}
