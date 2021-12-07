@@ -7,7 +7,7 @@ export const Upload = () => {
   const [key, setKey] = useState('');
 
   return (
-    <div className="z-0 flex flex-col justify-center items-center content-center bg-arrow-up h-full w-full bg-center bg-no-repeat bg-contain">
+    <div className="z-0 flex bg-petit-purple flex-col justify-center items-center content-center bg-arrow-up h-full w-full bg-center bg-no-repeat bg-contain">
       <div className="flex flex-col justify-center w-full items-center place-items-center">
         <div className="flex justify-center w-96 h-40 bg-white rounded-2xl shadow-xl">
           <textarea

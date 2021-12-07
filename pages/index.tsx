@@ -19,18 +19,18 @@ export default function Home() {
             downloadSelected ? 'bg-petit-grey' : 'bg-petit-purple'
           } w-screen h-screen`}
         >
-        <div className="flex flex-col lg:flex-row h-full">
+        <div className="flex flex-col justify-items-stretch lg:flex-row h-full">
             <div
-              className={`h-full ${
+              className={`lg:w-1/2 h-full ${
                 downloadSelected ? 'hidden' : 'visible'
-              }lg:visible`}
+              } lg:visible`}
             >
               <Upload />
             </div>
             <div
-              className={`h-full transition-all ${
+            className={`lg:w-1/2 h-full transition-all ${
                 !downloadSelected ? 'hidden' : 'visible'
-              }`}
+              } lg:inline`}
             >
               <Download text={'Finished the ui'} />
             </div>
