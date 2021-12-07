@@ -23,7 +23,7 @@ export default function Home() {
             <div
               className={`lg:w-1/2 h-full ${
                 downloadSelected ? 'hidden' : 'visible'
-              } lg:visible`}
+              } lg:inline`}
             >
               <Upload />
             </div>
