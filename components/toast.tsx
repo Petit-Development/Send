@@ -5,11 +5,11 @@ interface ToastProps {
   subtitle: string;
 }
 
-export const Toast: FC<ToastProps> = () => {
+export const Toast: FC<ToastProps> = ({ title, subtitle }) => {
   return (
     <div
       className={
-        ' flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 '
+        'flex max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 '
       }
     >
       <div className="flex items-center justify-center w-12 bg-petit-grey">
@@ -24,12 +24,8 @@ export const Toast: FC<ToastProps> = () => {
 
       <div className="px-4 py-2 -mx-3">
         <div className="mx-3">
-          <span className="font-semibold text-petit-grey">
-            Text Copied to Clipboard!
-          </span>
-          <p className="text-sm text-gray-600 dark:text-gray-200">
-            Your account was registered!
-          </p>
+          <span className="font-semibold text-petit-grey">{title}</span>
+          <p className="text-sm text-gray-600 dark:text-gray-200">{subtitle}</p>
         </div>
       </div>
     </div>

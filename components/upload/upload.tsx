@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+import { Toast } from '../toast';
 import UploadCast from './uploadCast';
 
 export default () => {
@@ -5,7 +7,7 @@ export default () => {
 };
 
 async function postData(key: string, text: string) {
-  const res = await fetch('/api/upload', {
+  await fetch('/api/upload', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -13,5 +15,19 @@ async function postData(key: string, text: string) {
     },
     body: JSON.stringify({ key: key, text: text }),
   });
-  console.log(res);
+
+  toast(
+    <Toast
+      title="Successfully Uploaded!"
+      subtitle={`use key ${key} to download again `}
+    />,
+    {
+      closeButton: undefined,
+      position: 'bottom-center',
+      hideProgressBar: true,
+      style: {
+        background: 'none',
+      },
+    }
+  );
 }

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { Toast } from '../toast';
 import DownloadCast from './downloadCast';
 
 export default () => {
@@ -14,6 +16,20 @@ export default () => {
       body: JSON.stringify({ key: key }),
     });
     const text = await res.json();
+    toast(
+      <Toast
+        title="Successfully Downloaded!"
+        subtitle={`Click copy to copy to clipboard`}
+      />,
+      {
+        closeButton: undefined,
+        position: 'bottom-center',
+        hideProgressBar: true,
+        style: {
+          background: 'none',
+        },
+      }
+    );
     setText(text.body);
   };
   return <DownloadCast text={text} onDownload={getData} />;

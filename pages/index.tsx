@@ -2,6 +2,8 @@ import Head from 'next/head';
 import { useState } from 'react';
 import Upload from '../components/upload/upload';
 import Download from '../components/download/download';
+import { ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   const [selected, setSelected] = useState('upload');
@@ -20,6 +22,7 @@ export default function Home() {
           } w-screen h-screen`}
         >
           <div className="flex flex-col justify-items-stretch lg:flex-row h-full">
+            <ToastContainer className="fixed" />
             <div
               className={`lg:w-1/2 h-full ${
                 downloadSelected ? 'hidden' : 'visible'

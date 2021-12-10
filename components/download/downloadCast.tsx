@@ -1,5 +1,7 @@
 import { FC, useState } from 'react';
 import { Copy } from 'react-feather';
+import { Toast } from '../toast';
+import { toast } from 'react-toastify';
 import Button from '../button';
 
 interface DownloadCastProps {
@@ -29,7 +31,23 @@ export const DownloadCast: FC<DownloadCastProps> = ({
             disabled={true}
           />
           <div
-            onClick={() => navigator.clipboard.writeText(key)}
+            onClick={() => {
+              toast(
+                <Toast
+                  title="Copied to Clipboard"
+                  subtitle={`Text copied to clipboard`}
+                />,
+                {
+                  closeButton: undefined,
+                  position: 'bottom-center',
+                  hideProgressBar: true,
+                  style: {
+                    background: 'none',
+                  },
+                }
+              );
+              navigator.clipboard.writeText(key);
+            }}
             className="cursor-pointer hover:opacity-80 flex bg-petit-purple h-10 items-center justify-center w-full text-center rounded-b-2xl"
           >
             <Copy color="#ffffff" size="21" />
