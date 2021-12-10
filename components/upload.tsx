@@ -24,7 +24,9 @@ export const Upload = () => {
             onChange={(change) => setKey(change.target.value)}
           />
           <div
-            onClick={() => navigator.clipboard.writeText(key)}
+            onClick={() => {
+              navigator.clipboard.writeText(key);
+            }}
             className="hover:opacity-75 cursor-pointer flex items-center bg-petit-grey justify-center w-full text-center rounded-r-2xl"
           >
             <Copy className="" color="#ffffff" size="21" />
