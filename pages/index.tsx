@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import Upload from '../components/upload';
+import Upload from '../components/upload/upload';
 import Download from '../components/download';
 
 export default function Home() {

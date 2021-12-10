@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { Copy } from 'react-feather';
-import Button from './button';
+import Button from '../button';
 
-export const Upload = () => {
+interface UploadCastProps {
+  onUpload: (key: string, text: string) => void;
+}
+
+export const UploadCast: React.FC<UploadCastProps> = ({ onUpload }) => {
   const [text, setText] = useState('');
   const [key, setKey] = useState('');
 
@@ -32,10 +36,10 @@ export const Upload = () => {
             <Copy className="" color="#ffffff" size="21" />
           </div>
         </div>
-        <Button text="Upload" onClick={() => console.log({ text, key })} />
+        <Button text="Upload" onClick={() => onUpload(key, text)} />
       </div>
     </div>
   );
 };
 
-export default Upload;
+export default UploadCast;
