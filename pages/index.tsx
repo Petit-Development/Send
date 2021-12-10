@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import Upload from '../components/upload/upload';
-import Download from '../components/download';
+import Download from '../components/download/download';
 
 export default function Home() {
   const [selected, setSelected] = useState('upload');
@@ -19,7 +19,7 @@ export default function Home() {
             downloadSelected ? 'bg-petit-grey' : 'bg-petit-purple'
           } w-screen h-screen`}
         >
-        <div className="flex flex-col justify-items-stretch lg:flex-row h-full">
+          <div className="flex flex-col justify-items-stretch lg:flex-row h-full">
             <div
               className={`lg:w-1/2 h-full ${
                 downloadSelected ? 'hidden' : 'visible'
@@ -28,11 +28,11 @@ export default function Home() {
               <Upload />
             </div>
             <div
-            className={`lg:w-1/2 h-full transition-all ${
+              className={`lg:w-1/2 h-full transition-all ${
                 !downloadSelected ? 'hidden' : 'visible'
               } lg:inline`}
             >
-              <Download text={'Finished the ui'} />
+              <Download />
             </div>
             <div className="flex lg:hidden justify-around">
               <TabButton
