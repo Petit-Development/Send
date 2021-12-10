@@ -29,6 +29,7 @@ export default async function handler(
   if (missing.length != 0) {
     console.log(missing);
     res.status(422).json({ error: `Missing ${missing.join(', ')}` });
+    return
   }
   const upload = req.body;
   try {
