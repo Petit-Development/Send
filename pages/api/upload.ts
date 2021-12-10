@@ -33,8 +33,8 @@ export default async function handler(
   const upload = req.body;
   try {
     await firestore.doc(`data/${upload.key}`).set({ text: upload.text });
+    res.status(200).json({ body: 'Uploaded!' });
   } catch {
     res.status(400).json({ error: 'Error uploading text' });
   }
-  res.status(200).json({ body: 'Uploaded!' });
 }
